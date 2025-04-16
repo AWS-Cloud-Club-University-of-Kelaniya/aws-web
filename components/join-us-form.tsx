@@ -31,7 +31,10 @@ const formSchema = z.object({
   studentId: z.string().min(5, { message: 'Student ID is required.' }),
   faculty: z.string().min(1, { message: 'Please select your faculty.' }),
   year: z.string().min(1, { message: 'Please select your year.' }),
-  experience: z.string().min(1, { message: 'Please select your experience level.' }),
+  contactNumber: z.string().min(10, { message: 'Contact number is requirred.' }),
+  address: z.string().min(10, { message: 'Address is requirred.' }),
+  emergencyContactPerson: z.string().min(10, { message: 'Person is requirred.' }),
+  emergencyContactNumber: z.string().min(10, { message: 'Contact number is requirred.' }),
   interests: z.string().min(10, { message: 'Please tell us about your interests (min 10 characters).' }),
   linkedin: z.string().url({ message: 'Please enter a valid LinkedIn URL.' }).optional().or(z.literal('')),
   github: z.string().url({ message: 'Please enter a valid GitHub URL.' }).optional().or(z.literal('')),
@@ -49,7 +52,10 @@ export default function JoinUsForm() {
       studentId: '',
       faculty: '',
       year: '',
-      experience: '',
+      contactNumber: '',
+      address: '',
+      emergencyContactPerson: '',
+      emergencyContactNumber: '',
       interests: '',
       linkedin: '',
       github: '',
@@ -141,8 +147,7 @@ export default function JoinUsForm() {
                   </FormControl>
                   <SelectContent>
                     <SelectItem value="science">Faculty of Science</SelectItem>
-                    <SelectItem value="computing">Faculty of Computing</SelectItem>
-                    <SelectItem value="engineering">Faculty of Engineering</SelectItem>
+                    <SelectItem value="computing">Faculty of Computing and Technology</SelectItem>
                     <SelectItem value="business">Faculty of Business</SelectItem>
                   </SelectContent>
                 </Select>
@@ -177,27 +182,67 @@ export default function JoinUsForm() {
         </div>
 
         <FormField
+            control={form.control}
+            name="contactNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>ContactNumber(Whatsapp)</FormLabel>
+                <FormControl>
+                  <Input placeholder="+94*********" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
           control={form.control}
-          name="experience"
+          name="address"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Cloud Computing Experience</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your experience level" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="beginner">Beginner</SelectItem>
-                  <SelectItem value="intermediate">Intermediate</SelectItem>
-                  <SelectItem value="advanced">Advanced</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormLabel>Address</FormLabel>
+              <FormControl>
+                <Input placeholder="Home Address" {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+        
+        <FormField
+            control={form.control}
+            name="emergencyContactPerson"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Emergency Contact Person</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Emergency Contact Person" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="Mother">Mother</SelectItem>
+                    <SelectItem value="Father">Father</SelectItem>
+                    <SelectItem value="Guadian">Guadian</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        <FormField
+            control={form.control}
+            name="emergencyContactNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Emergency Person Contact Number</FormLabel>
+                <FormControl>
+                  <Input placeholder="+94*********" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
         <FormField
           control={form.control}
