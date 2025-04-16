@@ -44,6 +44,7 @@ export default function AboutUs() {
             layout="fill"
             objectFit="cover"
             quality={100}
+            loading='lazy'
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
         </div>
@@ -99,6 +100,7 @@ export default function AboutUs() {
                 alt="Our Mission" 
                 layout="fill" 
                 objectFit="cover"
+                loading='lazy'
               />
             </motion.div>
           </motion.div>
@@ -177,6 +179,7 @@ export default function AboutUs() {
                         layout="fill" 
                         objectFit="cover" 
                         className="transform hover:scale-110 transition-transform duration-100"
+                        loading='lazy'
                       />
                     </div>
                     <CardTitle className="text-center">{member.name}</CardTitle>
