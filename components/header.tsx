@@ -63,6 +63,13 @@ export default function Header() {
             >
               <Link href="/join-us">Join Us</Link>
             </Button>
+            <Button 
+              asChild 
+              variant="default" 
+              className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity"
+            >
+              <Link href="/login">Login</Link>
+            </Button>
           </nav>
 
           <button 
@@ -104,6 +111,13 @@ export default function Header() {
                 className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity w-32"
               >
                 <Link href="/join-us">Join Us</Link>
+              </Button>
+              <Button 
+                asChild 
+                variant="default" 
+                className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity w-32"
+              >
+                <Link href="/login">Login</Link>
               </Button>
             </nav>
           </motion.div>
