@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { Eye, EyeOff } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Button } from '@/components/ui/button'
@@ -116,6 +117,39 @@ export default function JoinUsForm() {
               </FormItem>
             )}
           />
+          <FormField
+              control={form.control}
+              name="emergencyContactNumber"
+              render={({ field }) => {
+                const [showPassword, setShowPassword] = useState(false);
+
+                return (
+                  <FormItem>
+                    <FormLabel>Create a Password</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <Input
+                          type={showPassword ? "text" : "password"}
+                          placeholder="password"
+                          {...field}
+                          className="pr-10"
+                        />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2"
+                        >
+                          {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                        </Button>
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+          />
 
           <FormField
             control={form.control}
@@ -125,6 +159,19 @@ export default function JoinUsForm() {
                 <FormLabel>Student ID</FormLabel>
                 <FormControl>
                   <Input placeholder="SE/2020/001" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="contactNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>ContactNumber(Whatsapp)</FormLabel>
+                <FormControl>
+                  <Input placeholder="+94*********" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -181,19 +228,6 @@ export default function JoinUsForm() {
           />
         </div>
 
-        <FormField
-            control={form.control}
-            name="contactNumber"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>ContactNumber(Whatsapp)</FormLabel>
-                <FormControl>
-                  <Input placeholder="+94*********" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
           control={form.control}
           name="address"
@@ -207,7 +241,7 @@ export default function JoinUsForm() {
             </FormItem>
           )}
         />
-        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <FormField
             control={form.control}
             name="emergencyContactPerson"
@@ -243,6 +277,7 @@ export default function JoinUsForm() {
               </FormItem>
             )}
           />
+        </div>
 
         <FormField
           control={form.control}
