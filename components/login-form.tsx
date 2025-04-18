@@ -31,19 +31,30 @@ export default function LoginForm() {
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     setIsSubmitting(true)
     try {
-      // Simulate login API
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      console.log(values)
-
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+  
+      const data = await response.json()
+  
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed')
+      }
+  
       toast({
         title: 'Login Successful',
-        description: 'Welcome back!',
+        description: `Welcome back!`,
       })
+  
       form.reset()
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: 'Login Failed',
-        description: 'Invalid credentials.',
+        description: error.message || 'Invalid credentials.',
         variant: 'destructive',
       })
     } finally {

@@ -29,12 +29,13 @@ import { useToast } from '@/hooks/use-toast'
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Invalid email address.' }),
+  password: z.string().min(8, { message: '8 characters password' }),
   studentId: z.string().min(5, { message: 'Student ID is required.' }),
   faculty: z.string().min(1, { message: 'Please select your faculty.' }),
   year: z.string().min(1, { message: 'Please select your year.' }),
   contactNumber: z.string().min(10, { message: 'Contact number is requirred.' }),
   address: z.string().min(10, { message: 'Address is requirred.' }),
-  emergencyContactPerson: z.string().min(10, { message: 'Person is requirred.' }),
+  emergencyContactPerson: z.string().min(1, { message: 'Person is requirred.' }),
   emergencyContactNumber: z.string().min(10, { message: 'Contact number is requirred.' }),
   interests: z.string().min(10, { message: 'Please tell us about your interests (min 10 characters).' }),
   linkedin: z.string().url({ message: 'Please enter a valid LinkedIn URL.' }).optional().or(z.literal('')),
@@ -50,6 +51,7 @@ export default function JoinUsForm() {
     defaultValues: {
       fullName: '',
       email: '',
+      password: '',
       studentId: '',
       faculty: '',
       year: '',
@@ -66,13 +68,21 @@ export default function JoinUsForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      console.log(values)
+      const res = await fetch('http://localhost:5000/api/applications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+  
+      if (!res.ok) throw new Error('Failed to submit application')
+  
       toast({
         title: 'Application submitted successfully!',
         description: 'We will review your application and get back to you soon.',
       })
+  
       form.reset()
     } catch (error) {
       toast({
@@ -80,7 +90,7 @@ export default function JoinUsForm() {
         description: 'There was a problem submitting your application. Please try again.',
         variant: 'destructive',
       })
-      console.error(error);
+      console.error(error)
     } finally {
       setIsSubmitting(false)
     }
@@ -90,7 +100,7 @@ export default function JoinUsForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
-          control={form.control}
+          control={form.control}  
           name="fullName"
           render={({ field }) => (
             <FormItem>
@@ -119,7 +129,7 @@ export default function JoinUsForm() {
           />
           <FormField
               control={form.control}
-              name="emergencyContactNumber"
+              name="password"
               render={({ field }) => {
                 const [showPassword, setShowPassword] = useState(false);
 
@@ -158,7 +168,7 @@ export default function JoinUsForm() {
               <FormItem>
                 <FormLabel>Student ID</FormLabel>
                 <FormControl>
-                  <Input placeholder="SE/2020/001" {...field} />
+                  <Input placeholder="PS/2020/001" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -305,7 +315,7 @@ export default function JoinUsForm() {
               <FormItem>
                 <FormLabel>LinkedIn Profile (Optional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="https://linkedin.com/in/..." {...field} />
+                  <Input placeholder="https://www.linkedin.com/in/..." {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
