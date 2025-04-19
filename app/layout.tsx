@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'AWS Cloud Club - University of Kelaniya',
   description: 'Official website of the AWS Cloud Club at the University of Kelaniya',
+  icons: {
+    icon: 'favicon.png',
+  },
 }
 
 export default function RootLayout({
