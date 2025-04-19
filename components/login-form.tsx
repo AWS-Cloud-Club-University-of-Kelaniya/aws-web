@@ -51,13 +51,16 @@ export default function LoginForm() {
       })
   
       form.reset()
-    } catch (error: any) {
+    }catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Invalid credentials.'
+    
       toast({
         title: 'Login Failed',
-        description: error.message || 'Invalid credentials.',
+        description: errorMessage,
         variant: 'destructive',
       })
-    } finally {
+    }finally {
       setIsSubmitting(false)
     }
   }
