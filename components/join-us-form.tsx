@@ -44,6 +44,7 @@ const formSchema = z.object({
 
 export default function JoinUsForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const { toast } = useToast()
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -131,7 +132,6 @@ export default function JoinUsForm() {
               control={form.control}
               name="password"
               render={({ field }) => {
-                const [showPassword, setShowPassword] = useState(false);
 
                 return (
                   <FormItem>
