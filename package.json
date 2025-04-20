@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"next dev\" \"nodemon server/server.js\"",
     "build": "next build",
-    "start": "next server.js",
+    "start": "next server/server.js",
     "lint": "next lint"
   },
   "dependencies": {

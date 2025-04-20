@@ -37,7 +37,7 @@ export default function Home() {
             src="/hero-background2.jpg" 
             alt="Cloud computing background" 
             layout="fill" 
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
             quality={100} 
             priority
           />
@@ -199,7 +199,7 @@ export default function Home() {
                 src="/team-photo.jpg"
                 alt="AWS Cloud Club Team"
                 layout="fill"
-                objectFit="cover"
+                style={{ objectFit: 'cover' }}
                 className="transform hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
