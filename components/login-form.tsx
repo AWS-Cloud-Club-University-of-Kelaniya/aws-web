@@ -56,7 +56,7 @@ export default function LoginForm() {
         error instanceof Error ? error.message : 'Invalid credentials.'
     
       toast({
-        title: 'Login Failed',
+        title: 'Login failed',
         description: errorMessage,
         variant: 'destructive',
       })
