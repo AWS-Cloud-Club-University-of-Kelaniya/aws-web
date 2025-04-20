@@ -198,7 +198,7 @@ export default function Home() {
               <Image
                 src="/team-photo.jpg"
                 alt="AWS Cloud Club Team"
-                layout="fill"
+                fill
                 style={{ objectFit: 'cover' }}
                 className="transform hover:scale-105 transition-transform duration-700"
               />
