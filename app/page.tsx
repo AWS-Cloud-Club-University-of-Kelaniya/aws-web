@@ -36,7 +36,7 @@ export default function Home() {
           <Image 
             src="/hero-background2.jpg" 
             alt="Cloud computing background" 
-            layout="fill" 
+            fill
             style={{ objectFit: 'cover' }}
             quality={100} 
             priority
