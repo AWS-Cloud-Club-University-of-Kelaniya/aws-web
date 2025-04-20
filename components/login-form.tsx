@@ -31,7 +31,7 @@ export default function LoginForm() {
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     setIsSubmitting(true)
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('https://aws-web.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
