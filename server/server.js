@@ -9,7 +9,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const app = express();
 const cors = require('cors');
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
 }));
 app.use(express.json()); // Parse JSON requests
 
