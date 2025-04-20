@@ -107,7 +107,7 @@ export default function JoinUsForm() {
             <FormItem>
               <FormLabel>Full Name</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="John doily" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
