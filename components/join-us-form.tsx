@@ -45,11 +45,9 @@ const formSchema = z.object({
   emergencyContactNumber: z
     .string()
     .min(10, { message: "Contact number is requirred." }),
-  interests: z
-    .string()
-    .min(10, {
-      message: "Please tell us about your interests (min 10 characters).",
-    }),
+  interests: z.string().min(10, {
+    message: "Please tell us about your interests (min 10 characters).",
+  }),
   linkedin: z
     .string()
     .url({ message: "Please enter a valid LinkedIn URL." })
@@ -89,7 +87,7 @@ export default function JoinUsForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      const res = await fetch("http://api.aws-web.com/applications", {
+      const res = await fetch("https://api.aws-web.com/applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
