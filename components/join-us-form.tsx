@@ -84,7 +84,7 @@ export default function JoinUsForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {//https://api.aws-web.com/applications
     setIsSubmitting(true);
     try {
       const res = await fetch("https://api.aws-web.com/applications", {
