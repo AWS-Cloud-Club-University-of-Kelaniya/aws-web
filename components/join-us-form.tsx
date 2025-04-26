@@ -6,8 +6,6 @@ import { Eye, EyeOff } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
-import dotenv from "dotenv";
-dotenv.config();
 
 import {
   Form,
@@ -28,7 +26,6 @@ import {
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { dot } from "node:test/reporters";
 
 const formSchema = z.object({
   fullName: z
