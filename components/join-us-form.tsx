@@ -87,7 +87,7 @@ export default function JoinUsForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {//http://localhost:5000/applications
     setIsSubmitting(true);
     try {
-      const res = await fetch("https://api-aws-web.onrender.com/applications", {
+      const res = await fetch("https://api.aws-uok.com/applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
