@@ -6,6 +6,9 @@ import { Eye, EyeOff } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
+import dotenv from "dotenv";
+dotenv.config();
+
 import {
   Form,
   FormControl,
@@ -25,6 +28,7 @@ import {
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { dot } from "node:test/reporters";
 
 const formSchema = z.object({
   fullName: z
@@ -84,16 +88,20 @@ export default function JoinUsForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {//https://api.aws-web.com/applications
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
     setIsSubmitting(true);
     try {
-      const res = await fetch("https://api.aws-web.com/applications", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/applications`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to submit application");
 
@@ -164,14 +172,15 @@ export default function JoinUsForm() {
                       <Input
                         type={showPassword ? "text" : "password"}
                         placeholder="password"
-                        {...field}
                         className="pr-10"
+                        autoComplete="new-password"
+                        {...field}
                       />
                       <Button
                         type="button"
                         variant="ghost"
                         size="icon"
-                        onClick={() => setShowPassword(!showPassword)}
+                        onClick={() => setShowPassword((prev) => !prev)}
                         className="absolute right-2 top-1/2 -translate-y-1/2"
                       >
                         {showPassword ? (
@@ -307,7 +316,7 @@ export default function JoinUsForm() {
                   <SelectContent>
                     <SelectItem value="Mother">Mother</SelectItem>
                     <SelectItem value="Father">Father</SelectItem>
-                    <SelectItem value="Guadian">Guadian</SelectItem>
+                    <SelectItem value="Guadian">Guardian</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
