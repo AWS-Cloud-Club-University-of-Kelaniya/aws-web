@@ -85,7 +85,7 @@ export default function JoinUsForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {//${process.env.NEXT_PUBLIC_API_URL}
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     setIsSubmitting(true);
     try {
