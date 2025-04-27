@@ -207,7 +207,7 @@ export default function AboutUs() {
                   </CardHeader>
                   <CardContent className="text-center">
                     <p className="font-semibold mb-2">{member.position}</p>
-                    <p className="text-sm text-gray-600">{member.email}</p>
+                    {/* <p className="text-sm text-gray-600">{member.email}</p> */}
                   </CardContent>
                 </Card>
               </motion.div>
