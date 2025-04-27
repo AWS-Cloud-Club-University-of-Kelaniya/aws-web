@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -26,6 +27,7 @@ const loginSchema = z.object({
 
 export default function LoginForm() {
   const { toast } = useToast();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -37,10 +39,10 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof loginSchema>) => {
+  const onSubmit = async (values: z.infer<typeof loginSchema>) => {//${process.env.NEXT_PUBLIC_API_URL}
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+      const response = await fetch(`http://localhost:5000/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,9 +52,18 @@ export default function LoginForm() {
 
       const data = await response.json();
       console.log(data);
+
       if (!response.ok) {
-        throw new Error(data.message || "Login failed");
+        form.setError("password", { type: "manual", message: data.message });
+        setIsSubmitting(false); // stop spinner
+        return; // stop execution
       }
+
+      const { user, token } = data;
+
+       // Save user info and token to localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
 
       toast({
         title: "Login Successful",
@@ -60,6 +71,8 @@ export default function LoginForm() {
       });
 
       form.reset();
+      router.push("/dashboard");
+
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error ? error.message : "Invalid credentials.";
