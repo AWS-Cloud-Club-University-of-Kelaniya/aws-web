@@ -8,29 +8,36 @@ import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
-  // const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const token = localStorage.getItem('token');
+    setUserLoggedIn(!!token);
+
+    const handleStorageChange = () => {
+      const token = localStorage.getItem('token');
+      setUserLoggedIn(!!token);
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, [])
 
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.href = "/"; // Full refresh to homepage
+  }
+
   return (
-    <header 
-      className="fixed w-full z-50 bg-white transition-all duration-300 shadow-lg"
-      style={{ backgroundImage: 'url(/)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-      /*className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/80 nav-blur shadow-lg' 
-          : 'bg-transparent'
-      }`}*/
-    >
+    <header className="fixed w-full z-50 bg-white shadow-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
+          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image 
               src="/aws_logo.png"
@@ -44,7 +51,13 @@ export default function Header() {
             </span>
           </Link>
 
+          {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-8">
+            {userLoggedIn && (
+              <NavLink href="/dashboard">
+                Dashboard
+              </NavLink>
+            )}
             {[
               { href: '/', label: 'Home' },
               { href: '/about-us', label: 'About Us' },
@@ -56,22 +69,33 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <Button 
-              asChild 
-              variant="default" 
-              className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity"
-            >
-              <Link href="/join-us">Join Us</Link>
-            </Button>
-            <Button 
-              asChild 
-              variant="default" 
-              className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity"
-            >
-              <Link href="/login">Login</Link>
-            </Button>
+
+
+            {userLoggedIn ? (
+              <Button 
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            ) : (
+              <>
+                <Button 
+                  asChild 
+                  className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity"
+                >
+                  <Link href="/join-us">Join Us</Link>
+                </Button>
+                <Button 
+                  asChild 
+                  className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity"
+                >
+                  <Link href="/login">Login</Link>
+                </Button>
+              </>
+            )}
           </nav>
 
+          {/* Mobile Menu Toggle */}
           <button 
             className="md:hidden text-[#232F3E]" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -81,6 +105,7 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -90,6 +115,11 @@ export default function Header() {
             className="md:hidden bg-white/95 nav-blur"
           >
             <nav className="flex flex-col items-center py-6 space-y-4">
+              {userLoggedIn && (
+                <NavLink href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                  Dashboard
+                </NavLink>
+              )}
               {[
                 { href: '/', label: 'Home' },
                 { href: '/about-us', label: 'About Us' },
@@ -105,20 +135,30 @@ export default function Header() {
                   {item.label}
                 </NavLink>
               ))}
-              <Button 
-                asChild 
-                variant="default" 
-                className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity w-32"
-              >
-                <Link href="/join-us">Join Us</Link>
-              </Button>
-              <Button 
-                asChild 
-                variant="default" 
-                className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity w-32"
-              >
-                <Link href="/login">Login</Link>
-              </Button>
+
+
+              {userLoggedIn ? (
+                <Button 
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
+              ) : (
+                <>
+                  <Button 
+                    asChild 
+                    className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity w-32"
+                  >
+                    <Link href="/join-us" onClick={() => setIsMobileMenuOpen(false)}>Join Us</Link>
+                  </Button>
+                  <Button 
+                    asChild 
+                    className="bg-gradient-to-r from-[#FF9900] to-[#FFB444] text-[#232F3E] hover:opacity-90 transition-opacity w-32"
+                  >
+                    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
+                  </Button>
+                </>
+              )}
             </nav>
           </motion.div>
         )}
@@ -140,5 +180,4 @@ function NavLink({ href, children, ...props }: React.ComponentPropsWithoutRef<ty
       </span>
     </Link>
   )
-}
-
+};

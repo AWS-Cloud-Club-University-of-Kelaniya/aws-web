@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
 
 interface User {
   fullName: string;
@@ -26,11 +25,6 @@ export default function Dashboard() {
     }
   }, [router]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    router.push("/login");
-  };
 
   if (!user) {
     return (
@@ -45,8 +39,6 @@ export default function Dashboard() {
       <h1 className="text-3xl font-bold mb-4">Welcome, {user.fullName}!</h1>
       <p className="text-lg mb-2">Email: {user.email}</p>
       <p className="text-lg mb-4">Student No: {user.studentID}</p>
-
-      <Button onClick={handleLogout}>Logout</Button>
     </div>
   );
 }

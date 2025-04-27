@@ -71,7 +71,7 @@ export default function LoginForm() {
       });
 
       form.reset();
-      router.push("/dashboard");
+      window.location.href = "/dashboard";
 
     } catch (error: unknown) {
       const errorMessage =
