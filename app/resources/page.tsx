@@ -103,7 +103,7 @@ export default function Resources() {
                       </CardDescription>
                       <Button asChild variant="outline" className="w-full">
                         {/* <Link href={tool.link} target='_blank'>Access Tool</Link> */}
-                        <Button disabled="true">Coming soon</Button>
+                        <Button disabled>Coming soon</Button>
                       </Button>
                     </CardContent>
                   </Card>
