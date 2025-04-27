@@ -1,10 +1,16 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { resources } from '@/data/resources'
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { resources } from "@/data/resources";
 
 export default function Resources() {
   return (
@@ -46,12 +52,18 @@ export default function Resources() {
                       <div className="rounded-full bg-[#FF9900]/10 p-3 w-12 h-12 flex items-center justify-center mb-4">
                         <resource.icon className="w-6 h-6 text-[#FF9900]" />
                       </div>
-                      <CardTitle className="text-xl">{resource.title}</CardTitle>
+                      <CardTitle className="text-xl">
+                        {resource.title}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="mb-4">{resource.description}</CardDescription>
+                      <CardDescription className="mb-4">
+                        {resource.description}
+                      </CardDescription>
                       <Button asChild variant="outline" className="w-full">
-                        <Link href={resource.link} target='_blank' >Access Resource</Link>
+                        <Link href={resource.link} target="_blank">
+                          Access Resource
+                        </Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -86,9 +98,12 @@ export default function Resources() {
                       <CardTitle className="text-xl">{tool.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="mb-4">{tool.description}</CardDescription>
+                      <CardDescription className="mb-4">
+                        {tool.description}
+                      </CardDescription>
                       <Button asChild variant="outline" className="w-full">
-                        <Link href={tool.link} target='_blank'>Access Tool</Link>
+                        {/* <Link href={tool.link} target='_blank'>Access Tool</Link> */}
+                        <Button disabled="true">Coming soon</Button>
                       </Button>
                     </CardContent>
                   </Card>
@@ -107,9 +122,13 @@ export default function Resources() {
             <div className="text-center">
               <h2 className="text-2xl font-bold mb-4">Need More Resources?</h2>
               <p className="mb-6">
-                Join our AWS Cloud Club to get access to exclusive resources and learning materials
+                Join our AWS Cloud Club to get access to exclusive resources and
+                learning materials
               </p>
-              <Button asChild className="bg-[#FF9900] text-[#232F3E] hover:bg-[#FF9900]/90">
+              <Button
+                asChild
+                className="bg-[#FF9900] text-[#232F3E] hover:bg-[#FF9900]/90"
+              >
                 <Link href="/join-us">Become a Member</Link>
               </Button>
             </div>
@@ -117,6 +136,5 @@ export default function Resources() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

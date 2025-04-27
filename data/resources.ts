@@ -6,7 +6,7 @@ export const resources = {
         title: "AWS Fundamentals Course",
         description: "Learn the basics of AWS services and cloud computing",
         icon: Book,
-        link: "#"
+        link: "https://aws.amazon.com/getting-started/cloud-essentials/?nc2=h_ql_le_gs_awsf"
       },
       {
         title: "Cloud Practitioner Pathway",

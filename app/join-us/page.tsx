@@ -21,7 +21,7 @@ export default function JoinUs() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -87,8 +87,8 @@ export default function JoinUs() {
               </CardHeader>
               <CardContent>
                 <p>
-                  Application submission for new members will be open from 1 May
-                  2025 - 31 May 2025.
+                  You can submit your membership application through this page.
+                  Next intake opens from 1 May 2025 - 31 May 2025.
                 </p>
 
                 {/* <JoinUsForm /> */}
