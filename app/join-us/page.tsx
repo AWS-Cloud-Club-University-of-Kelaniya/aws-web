@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import JoinUsForm from '@/components/join-us-form'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Briefcase, GraduationCap, Users, Award } from 'lucide-react'
+import { motion } from "framer-motion";
+import JoinUsForm from "@/components/join-us-form";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Briefcase, GraduationCap, Users, Award } from "lucide-react";
 
 export default function JoinUs() {
   return (
@@ -34,23 +34,24 @@ export default function JoinUs() {
                   {
                     icon: GraduationCap,
                     title: "Learning",
-                    description: "Access to AWS training and certification resources"
+                    description:
+                      "Access to AWS training and certification resources",
                   },
                   {
                     icon: Users,
                     title: "Community",
-                    description: "Connect with like-minded cloud enthusiasts"
+                    description: "Connect with like-minded cloud enthusiasts",
                   },
                   {
                     icon: Briefcase,
                     title: "Career",
-                    description: "Job opportunities and industry connections"
+                    description: "Job opportunities and industry connections",
                   },
                   {
                     icon: Award,
                     title: "Recognition",
-                    description: "AWS certifications and achievements"
-                  }
+                    description: "AWS certifications and achievements",
+                  },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -64,7 +65,9 @@ export default function JoinUs() {
                           <item.icon className="w-6 h-6 text-[#FF9900]" />
                         </div>
                         <h3 className="font-semibold mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.description}</p>
+                        <p className="text-sm text-gray-600">
+                          {item.description}
+                        </p>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -80,16 +83,17 @@ export default function JoinUs() {
           >
             <Card>
               <CardHeader>
-                <CardTitle>Membership Application</CardTitle>
+                <CardTitle>Membership Application 2025</CardTitle>
               </CardHeader>
               <CardContent>
-                <JoinUsForm />
+                Application submission for new members will be open from 1 May
+                2025 - 31 May 2025.
+                {/* <JoinUsForm /> */}
               </CardContent>
             </Card>
           </motion.div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
