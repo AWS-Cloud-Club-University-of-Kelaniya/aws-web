@@ -42,7 +42,7 @@ export default function LoginForm() {
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {//${process.env.NEXT_PUBLIC_API_URL}
     setIsSubmitting(true);
     try {
-      const response = await fetch(`http://localhost:5000/login`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
