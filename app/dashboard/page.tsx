@@ -8,7 +8,7 @@ import { string } from "zod";
 interface User {
   fullName: string;
   email: string;
-  studentId: string;
+  studentID: string;
 }
 
 export default function Dashboard() {
@@ -45,7 +45,7 @@ export default function Dashboard() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-3xl font-bold mb-4">Welcome, {user.fullName}!</h1>
       <p className="text-lg mb-2">Email: {user.email}</p>
-      <p className="text-lg mb-4">Student No: {user.studentId}</p>
+      <p className="text-lg mb-4">Student No: {user.studentID}</p>
 
       <Button onClick={handleLogout}>Logout</Button>
     </div>
