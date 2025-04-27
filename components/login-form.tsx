@@ -27,7 +27,6 @@ const loginSchema = z.object({
 
 export default function LoginForm() {
   const { toast } = useToast();
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
