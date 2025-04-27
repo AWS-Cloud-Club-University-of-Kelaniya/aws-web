@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { string } from "zod";
 
 interface User {
   fullName: string;
@@ -19,7 +18,7 @@ export default function Dashboard() {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      const parsedUser = JSON.parse(storedUser)
+      //const parsedUser = JSON.parse(storedUser)
       setUser(JSON.parse(storedUser));
     } else {
       // If no user found, redirect to login
