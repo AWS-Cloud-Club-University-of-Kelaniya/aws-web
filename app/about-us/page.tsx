@@ -1,22 +1,21 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Cloud, Users, Zap, Award } from 'lucide-react'
-import { teamMembers } from '@/data/team'
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Cloud, Users, Zap, Award } from "lucide-react";
+import { teamMembers } from "@/data/team";
 
 export default function AboutUs() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -24,14 +23,14 @@ export default function AboutUs() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
-  }
+        duration: 0.6,
+      },
+    },
+  };
 
   return (
     <div className="bg-gray-50">
-      <motion.section 
+      <motion.section
         className="relative py-20 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -44,7 +43,7 @@ export default function AboutUs() {
             layout="fill"
             objectFit="cover"
             quality={100}
-            loading='lazy'
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
         </div>
@@ -63,51 +62,57 @@ export default function AboutUs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Empowering the next generation of cloud computing experts at the University of Kelaniya
+            Empowering the next generation of cloud computing experts at the
+            University of Kelaniya
           </motion.p>
         </div>
       </motion.section>
-      
+
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.div 
-              className="space-y-6"
-              variants={itemVariants}
-            >
+            <motion.div className="space-y-6" variants={itemVariants}>
+              <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
+              <p className="text-lg text-gray-600">
+                To become the premier student-driven community advancing Cloud
+                Computing education in Sri Lanka.
+              </p>
               <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
               <p className="text-lg text-gray-600">
-                The AWS Cloud Club at the University of Kelaniya is dedicated to fostering a community 
-                of cloud computing enthusiasts. Our mission is to empower students with the knowledge 
-                and skills needed to thrive in the ever-evolving world of cloud technology.
+                The AWS Cloud Club at the University of Kelaniya is dedicated to
+                fostering a community of cloud computing enthusiasts. Our
+                mission is to equip students with in-demand cloud computing
+                knowledge and skills through industry-relevant events, hands-on
+                workshops, competitions and the publication of educational
+                content.
               </p>
               <p className="text-lg text-gray-600">
-                Through workshops, seminars, and hands-on projects, we aim to bridge the gap between 
-                academic learning and real-world application of AWS services.
+                Through this we aim to bridge the gap between academic learning
+                and pracical skills in cloud computing.
               </p>
             </motion.div>
             <motion.div
               className="relative h-96 rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-700"
               variants={itemVariants}
             >
-              <Image 
-                src="/mission.jpg" 
-                alt="Our Mission" 
-                layout="fill" 
+              <Image
+                src="/mission.jpg"
+                alt="Our Mission"
+                layout="fill"
                 objectFit="cover"
-                loading='lazy'
+                loading="lazy"
               />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <motion.section 
+      <motion.section
         className="py-20 bg-gradient-to-b from-white to-gray-100"
         variants={containerVariants}
         initial="hidden"
@@ -115,7 +120,7 @@ export default function AboutUs() {
         viewport={{ once: true }}
       >
         <div className="container mx-auto px-4">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-12 text-center"
             variants={itemVariants}
           >
@@ -123,10 +128,26 @@ export default function AboutUs() {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Cloud, title: "AWS Workshops", description: "Hands-on sessions to learn AWS services" },
-              { icon: Users, title: "Networking", description: "Connect with industry professionals and peers" },
-              { icon: Zap, title: "Hackathons", description: "Compete and showcase your cloud skills" },
-              { icon: Award, title: "Certifications", description: "Guidance for AWS certification exams" },
+              {
+                icon: Cloud,
+                title: "AWS Workshops",
+                description: "Hands-on sessions to learn AWS services",
+              },
+              {
+                icon: Users,
+                title: "Networking",
+                description: "Connect with industry professionals and peers",
+              },
+              {
+                icon: Zap,
+                title: "Hackathons",
+                description: "Compete and showcase your cloud skills",
+              },
+              {
+                icon: Award,
+                title: "Certifications",
+                description: "Guidance for AWS certification exams",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -149,7 +170,7 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      <motion.section 
+      <motion.section
         className="py-20"
         variants={containerVariants}
         initial="hidden"
@@ -157,7 +178,7 @@ export default function AboutUs() {
         viewport={{ once: true }}
       >
         <div className="container mx-auto px-4">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-12 text-center"
             variants={itemVariants}
           >
@@ -173,13 +194,13 @@ export default function AboutUs() {
                 <Card className="hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
                     <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 relative">
-                      <Image 
-                        src={member.image} 
-                        alt={member.name} 
-                        layout="fill" 
-                        objectFit="cover" 
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        layout="fill"
+                        objectFit="cover"
                         className="transform hover:scale-110 transition-transform duration-100"
-                        loading='lazy'
+                        loading="lazy"
                       />
                     </div>
                     <CardTitle className="text-center">{member.name}</CardTitle>
@@ -195,6 +216,5 @@ export default function AboutUs() {
         </div>
       </motion.section>
     </div>
-  )
+  );
 }
-

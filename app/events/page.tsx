@@ -1,13 +1,18 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react'
-import { events } from '@/data/events'
-
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
+import { events } from "@/data/events";
 
 export default function Events() {
   return (
@@ -85,14 +90,17 @@ export default function Events() {
         >
           <h2 className="text-2xl font-bold mb-4">Past Events</h2>
           <p className="text-gray-600">
-            Check out our previous events and workshops on our{' '}
-            <Link href="#" className="text-[#FF9900] hover:underline">
+            Check out our previous events and workshops on our{" "}
+            <Link
+              href="https://youtube.com/@awscloudclubkelaniya?si=iIQeppQfq_Hd2fNM"
+              className="text-[#FF9900] hover:underline"
+            >
               YouTube channel
             </Link>
           </p>
+          <br />
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
-

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -72,8 +72,11 @@ export default function Footer() {
               >
                 <Facebook size={24} />
               </a>
-              <a href="#" className="hover:text-[#FF9900]">
-                <Twitter size={24} />
+              <a
+                href="https://www.instagram.com/aws_cloud_club"
+                className="hover:text-[#FF9900]"
+              >
+                <Instagram size={24} />
               </a>
               <a
                 href="https://www.linkedin.com/company/aws-cloud-club-of-university-of-kelaniya"

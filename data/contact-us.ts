@@ -9,11 +9,11 @@ export const contacts = [
     {
         icon: Phone,
         title: "Call Us",
-        content: "+94 123 456 789\n+94 789 456 123",
+        content: "+94 76 377 6240\n+94 77 367 7822",
     },
     {
         icon: Mail,
         title: "Email Us",
-        content: "awscloudclub@kln.ac.lk\ninfo@awscloudclub.com",
+        content: "aws.uok@gmail.com",
     },
 ]

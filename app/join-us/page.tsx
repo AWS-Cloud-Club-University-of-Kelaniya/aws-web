@@ -86,8 +86,11 @@ export default function JoinUs() {
                 <CardTitle>Membership Application 2025</CardTitle>
               </CardHeader>
               <CardContent>
-                Application submission for new members will be open from 1 May
-                2025 - 31 May 2025.
+                <p>
+                  Application submission for new members will be open from 1 May
+                  2025 - 31 May 2025.
+                </p>
+
                 {/* <JoinUsForm /> */}
               </CardContent>
             </Card>
