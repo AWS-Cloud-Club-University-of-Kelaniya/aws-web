@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import LoginForm from "@/components/login-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, GraduationCap, Users, Award } from "lucide-react";
+// import { Briefcase, GraduationCap, Users, Award } from "lucide-react";
 
 export default function JoinUs() {
   return (

@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-
 export default function Faq() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">

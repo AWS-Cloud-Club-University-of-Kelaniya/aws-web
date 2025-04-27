@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import JoinUsForm from "@/components/join-us-form";
+// import JoinUsForm from "@/components/join-us-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, GraduationCap, Users, Award } from "lucide-react";
 
