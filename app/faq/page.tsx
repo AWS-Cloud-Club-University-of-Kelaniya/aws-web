@@ -1,13 +1,55 @@
-"use client";
+"use client"; // Needed if you're using App Router, because we have interactivity
 
-export default function Faq() {
+import React, { useState } from "react";
+
+const faqs = [
+  {
+    question: "What are AWS Cloud Clubs?",
+    answer:
+      "AWS Cloud Clubs are student-led user groups for post-secondary level students and independent learners. Led by Cloud Club Captains, Cloud Clubs are open to any learner aged 18+.",
+  },
+  {
+    question: "How do I become a member?",
+    answer:
+      "You can submit your application through the website when the new membership window opens.",
+  },
+  {
+    question: "When is the next membership intake?",
+    answer:
+      "The next submission window will be open from 1-May-2025 to 31-May-2025.",
+  },
+];
+
+export default function faq() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <h1 className="text-3xl font-bold mb-4">Frequently Asked Questions</h1>
-      <p className="text-lg mb-2">When is the next membership intake?</p>
-      <p className="text-md mb-2">
-        The next intake will open from 1 May 2025 to 31 May 2025
-      </p>
-    </div>
+    <main className="max-w-4xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-8 text-center">
+        Frequently Asked Questions
+      </h1>
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <div key={index} className="border rounded-lg p-4">
+            <button
+              onClick={() => toggleFAQ(index)}
+              className="flex justify-between items-center w-full text-left"
+            >
+              <span className="text-xl font-semibold">{faq.question}</span>
+              <span className="text-2xl">
+                {openIndex === index ? "-" : "+"}
+              </span>
+            </button>
+            {openIndex === index && (
+              <p className="mt-2 text-gray-700">{faq.answer}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }

@@ -1,11 +1,12 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import ContactForm from '@/components/contact-form'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { MessageSquare } from 'lucide-react'
-import { contacts } from '@/data/contact-us'
+import { motion } from "framer-motion";
+import Image from "next/image";
+import ContactForm from "@/components/contact-form";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MessageSquare } from "lucide-react";
+import { contacts } from "@/data/contact-us";
+import Link from "next/link";
 
 export default function ContactUs() {
   return (
@@ -30,7 +31,7 @@ export default function ContactUs() {
           className="relative z-10 text-center text-white"
         >
           <h1 className="text-5xl md:text-6xl font-bold mb-4">{`Do you have any questions?`}</h1>
-          <p className="text-xl opacity-90">{`We're here to help and answer any question you might have`}</p>
+          <p className="text-xl opacity-90">{`We're here to help and answer any questions you might have`}</p>
         </motion.div>
       </section>
 
@@ -50,10 +51,14 @@ export default function ContactUs() {
                     <div className="mx-auto rounded-full bg-[#FF9900]/10 p-4 w-16 h-16 flex items-center justify-center mb-4">
                       <item.icon className="w-8 h-8 text-[#FF9900]" />
                     </div>
-                    <CardTitle className="text-xl mb-2">{item?.title}</CardTitle>
+                    <CardTitle className="text-xl mb-2">
+                      {item?.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 whitespace-pre-line">{item?.content}</p>
+                    <p className="text-gray-600 whitespace-pre-line">
+                      {item?.content}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -125,12 +130,11 @@ export default function ContactUs() {
               Check out our FAQ section or reach out to us on social media
             </p>
             <div className="inline-flex items-center justify-center px-6 py-3 border-2 border-[#FF9900] rounded-lg text-[#FF9900] hover:bg-[#FF9900] hover:text-white transition-colors duration-300 cursor-pointer">
-              Visit FAQ Page
+              <Link href="/faq">Visit FAQ Page</Link>
             </div>
           </motion.div>
         </div>
       </section>
     </div>
-  )
+  );
 }
-
