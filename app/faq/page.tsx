@@ -20,7 +20,7 @@ const faqs = [
   },
 ];
 
-export default function faq() {
+export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
