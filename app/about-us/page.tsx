@@ -93,7 +93,7 @@ export default function AboutUs() {
               </p>
               <p className="text-lg text-gray-600">
                 Through this we aim to bridge the gap between academic learning
-                and pracical skills in cloud computing.
+                and practical skills in cloud computing.
               </p>
             </motion.div>
             <motion.div
