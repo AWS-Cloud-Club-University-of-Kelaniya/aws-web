@@ -2,7 +2,7 @@ export const teamMembers = [
     { name: 'Binath Perera', position: 'President', image: '/binath.jpg' },
     { name: 'Ishini Kaushalya', position: 'Secretory', image: '/ishini.jpg' },
     { name: 'Yuneth Withanachchi', position: 'Vice President', image: '/yuneth.jpg' },
-    { name: 'Amasha Fernando ', position: 'Vice Secretory', image: '/female.png' },
+    { name: 'Amasha Fernando ', position: 'Vice Secretory', image: '/amasha.jpg' },
     { name: 'Janith Thejaka', position: 'Editor', image: '/janith.jpg' },
     { name: 'Haritha Thanthilage', position: 'Editor', image: '/haritha.jpg' },
     { name: 'Maneesha Gunarathne', position: 'Junior Treasurer', image: '/maneesha.jpg' },
@@ -19,5 +19,5 @@ export const teamMembers = [
     { name: 'Neluni Wijesekara', position: '4th year Committee member', image: '/neluni.jpg'},
     { name: 'Nisakya Gamage', position: '3rd year Committee member', image: '/nisakya.jpg' },
     { name: 'Janeesha Shehani', position: '3rd year Committee member', image: '/janeesha.jpg' },
-    { name: 'Hansini Ratnayake', position: '3rd year Committee member', image: '/female.png' },
+    { name: 'Hansini Ratnayake', position: '3rd year Committee member', image: '/hansini.jpg' },
   ]
