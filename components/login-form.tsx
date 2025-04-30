@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "react-hot-toast";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }),
@@ -25,7 +25,6 @@ const loginSchema = z.object({
 });
 
 export default function LoginForm() {
-  const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -63,9 +62,9 @@ export default function LoginForm() {
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("token", token);
 
-      toast({
-        title: "Login Successful",
-        description: `Welcome back!`,
+      toast.success("Login Successful", {
+        duration: 2000,
+        position: "top-center",
       });
 
       form.reset();
@@ -75,11 +74,16 @@ export default function LoginForm() {
       const errorMessage =
         error instanceof Error ? error.message : "Invalid credentials.";
 
-      toast({
-        title: "Login failed",
-        description: errorMessage,
-        variant: "destructive",
+      // toast({
+      //   title: "Login failed",
+      //   description: errorMessage,
+      //   variant: "destructive",
+      // });
+      toast.error(errorMessage, {
+        duration: 2000,
+        position: "top-center",
       });
+      
     } finally {
       setIsSubmitting(false);
     }

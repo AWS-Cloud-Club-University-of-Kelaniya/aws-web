@@ -25,7 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "react-hot-toast";
 
 const formSchema = z.object({
   fullName: z
@@ -64,7 +64,6 @@ const formSchema = z.object({
 export default function JoinUsForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -102,20 +101,22 @@ export default function JoinUsForm() {
 
       if (!res.ok) throw new Error("Failed to submit application");
 
-      toast({
-        title: "Application submitted successfully!",
-        description:
-          "We will review your application and get back to you soon.",
+      toast.success("Application submitted successfully!", {
+        duration: 2000,
+        position: "top-center",
       });
+
 
       form.reset();
     } catch (error) {
-      toast({
-        title: "Error",
-        description:
-          "There was a problem submitting your application. Please try again.",
-        variant: "destructive",
-      });
+      toast.error(
+        "There was a problem submitting your application. Please try again.",
+        {
+          duration: 2000,
+          position: "top-center",
+        }
+      );
+
       console.error(error);
     } finally {
       setIsSubmitting(false);
