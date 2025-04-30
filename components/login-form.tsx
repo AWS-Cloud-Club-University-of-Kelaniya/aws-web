@@ -74,12 +74,7 @@ export default function LoginForm() {
       const errorMessage =
         error instanceof Error ? error.message : "Invalid credentials.";
 
-      // toast({
-      //   title: "Login failed",
-      //   description: errorMessage,
-      //   variant: "destructive",
-      // });
-      toast.error(errorMessage, {
+      toast.error("Login failed", {
         duration: 2000,
         position: "top-center",
       });
