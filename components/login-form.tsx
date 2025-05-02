@@ -70,7 +70,8 @@ export default function LoginForm() {
       form.reset();
       window.location.href = "/dashboard";
 
-    } catch (error: unknown) {
+    } catch (error) {
+      console.error("Login error:", error);
       toast.error("Login failed", {
         duration: 2000,
         position: "top-center",
