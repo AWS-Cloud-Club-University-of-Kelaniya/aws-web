@@ -71,9 +71,6 @@ export default function LoginForm() {
       window.location.href = "/dashboard";
 
     } catch (error: unknown) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Invalid credentials.";
-
       toast.error("Login failed", {
         duration: 2000,
         position: "top-center",

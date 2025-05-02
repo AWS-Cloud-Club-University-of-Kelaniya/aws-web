@@ -55,8 +55,8 @@ export default function ForgotPassword() {
       toast.success(data.message)
       handleButtonClick()
 
-    } catch (error: any) {
-      toast.error(error.message)
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "An unexpected error occurred")
     } finally {
       setIsSubmitting(false);
     }
