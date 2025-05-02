@@ -53,8 +53,10 @@ const ResetPasswordPage: React.FC = () => {
       toast.success(data.message);
       router.push("/login");
       setIsSubmitting(false);
-    } catch (err: any) {
-      toast.error(err.message);
+    } catch (err) {
+      toast.error(
+        err instanceof Error ? err.message : "An unknown error occurred"
+      );
     } finally {
       setIsSubmitting(false);
     }
