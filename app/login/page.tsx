@@ -1,5 +1,5 @@
 "use client";
-
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { motion } from "framer-motion";
 import LoginForm from "@/components/login-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
