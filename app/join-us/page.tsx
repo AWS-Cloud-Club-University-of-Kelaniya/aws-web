@@ -88,7 +88,7 @@ export default function JoinUs() {
               <CardContent>
                 <p>
                   You can submit your membership application through this page.
-                  Next intake opens from 1 May 2025 - 31 May 2025.
+                  Next intake opens from 15 May 2025 - 31 May 2025.
                 </p>
 
                 {/* <JoinUsForm /> */}
