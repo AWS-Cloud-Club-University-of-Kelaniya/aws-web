@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Loader2 } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
-import { useToast } from '@/hooks/use-toast'
+import toast from "react-hot-toast";
 
 const schema = z.object({
     email: z.string().email({ message: "Please enter a valid email." }),
@@ -17,7 +17,6 @@ const schema = z.object({
 
 export default function ForgotPassword() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -25,6 +24,16 @@ export default function ForgotPassword() {
       email: "",
     },
   });
+
+  // add a timer so user cant spam the button
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const handleButtonClick = () => {
+    setIsButtonDisabled(true);
+    setTimeout(() => {
+      setIsButtonDisabled(false);
+    }, 20000); // 3 seconds
+  };
+
 
   const onSubmit = async (values: z.infer<typeof schema>) => {
     setIsSubmitting(true);
@@ -39,14 +48,15 @@ export default function ForgotPassword() {
 
       const data = await response.json();
       if (!response.ok) {
-        toast({ title: data.message, variant: 'destructive' })
+        toast.error(data.message)
         setIsSubmitting(false)
         return
       }
-      toast({ title: data.message })
-      form.reset()
+      toast.success(data.message)
+      handleButtonClick()
+
     } catch (error: any) {
-      toast({ title: error.message, variant: 'destructive' })
+      toast.error(error.message)
     } finally {
       setIsSubmitting(false);
     }
@@ -76,7 +86,7 @@ export default function ForgotPassword() {
                 )}
               />
               <CardFooter className="p-0">
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Button type="submit" className="w-full" disabled={isSubmitting || isButtonDisabled}>
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />

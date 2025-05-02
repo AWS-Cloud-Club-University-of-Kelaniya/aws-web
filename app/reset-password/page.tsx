@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect, FormEvent } from 'react'
-import Head from 'next/head'
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
@@ -12,15 +11,15 @@ import { Loader2 } from 'lucide-react'
 
 const ResetPasswordPage: React.FC = () => {
     const router = useRouter()
-    const params = useParams()
-    const { token } = params as { token: string }
+    const searchParams = useSearchParams()
+    const token = searchParams.get('token')
+
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     useEffect(() => {
         if (!token) return
-        // optionally, verify token format here
     }, [token])
 
     const handleSubmit = async (e: FormEvent) => {
@@ -56,9 +55,6 @@ const ResetPasswordPage: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>Reset Password</title>
-      </Head>
       <div className="flex items-center justify-center min-h-screen bg-background p-4">
         <Card className="w-full max-w-md">
           <CardHeader>
