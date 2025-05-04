@@ -10,7 +10,7 @@ export const teamMembers = [
     { name: 'Kaveen Gayanga', position: 'Membership Coordinator', image: '/kaveen.jpg' },
     { name: 'Waruna Dissanayake', position: 'Event&Logistics Coordinator', image: '/waruna.jpg' },
     { name: 'Malith Maduranga', position: 'Community Liaison', image: '/malith.jpg' },
-    { name: 'Rumeth Wijerathne', position: 'PR Coordinator', image: '/rumeth.jpg' },
+    { name: 'Rumeth Wijethunge', position: 'PR Coordinator', image: '/rumeth.jpg' },
     { name: 'Madushan Chathuranghe', position: '3rd year Tech Lead', image: '/madushan.jpg' },
     { name: 'Lakindu Banneheka', position: '4th year Tech Lead', image: '/lakindu.jpg' },
     { name: 'Shanika Munasinghe', position: '4rd year Committee member', image: '/shanika.jpg' },

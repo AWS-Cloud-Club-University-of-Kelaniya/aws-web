@@ -86,10 +86,10 @@
 
 .animation-delay-600 {
   animation-delay: 600ms;
-}
+} 
 
 .gradient-text {
-  background: linear-gradient(45deg, #FF9900, #232F3E);
+  background: linear-gradient(45deg, #FF9900, #c79f9f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
