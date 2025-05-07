@@ -70,9 +70,13 @@ export default function Events() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 mb-4">{event.description}</p>
-                  <Button asChild className="w-full">
-                    <Link href={event.registrationLink}>
+                  <Button asChild className="w-full" variant={"outline"}>
+                    {/* <Link href={event.registrationLink}>
                       Register Now
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link> */}
+                    <Link href={event.registrationLink}>
+                      Registrations Open Soon
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>

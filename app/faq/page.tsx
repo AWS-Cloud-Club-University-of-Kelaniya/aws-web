@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "When is the next membership intake?",
     answer:
-      "The next submission window will be open from 1-May-2025 to 31-May-2025.",
+      "The next submission window will be open from 15-May-2025 to 31-May-2025.",
   },
 ];
 
