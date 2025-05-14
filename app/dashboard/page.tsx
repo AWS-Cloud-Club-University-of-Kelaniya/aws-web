@@ -21,62 +21,64 @@ export default function Dashboard() {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      //const parsedUser = JSON.parse(storedUser)
-      setUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+
+      const status = searchParams.get("status");
+
+      if (status === "success") {
+        // Only check server if PayHere redirected back with ?status=success
+        checkPaymentStatus(parsedUser.email);
+      } else if (status === "cancel") {
+        setPaymentStatus("cancel");
+        setPaymentStatusMessage("❌ Payment was canceled.");
+      }
     } else {
       // If no user found, redirect to login
       router.push("/login");
     }
-
-    // Check for payment status from query params
-    const status = searchParams.get("status");
-    if (status === "success") {
-      setPaymentStatus("success");
-      setPaymentStatusMessage("Payment was successful!");
-    } else if (status === "cancel") {
-      setPaymentStatus("cancel");
-      setPaymentStatusMessage("Payment was canceled.");
-    }
   }, [router,searchParams]);
+
+  const checkPaymentStatus = async (email: string) => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/status?email=${email}`);
+      const data = await res.json();
+
+      if (res.ok && data.paid) {
+        setPaymentStatus("success");
+        setPaymentStatusMessage("✅ Payment confirmed via server.");
+      } else {
+        setPaymentStatus("pending");
+        setPaymentStatusMessage("⏳ Payment not confirmed yet. Please wait a few minutes.");
+      }
+    } catch (error) {
+      console.error("Error checking payment status:", error);
+      setPaymentStatusMessage("⚠️ Failed to check payment status. Please try again.");
+    }
+  };
+  
   const [isPaying, setIsPaying] = useState(false);
 
   const handlePayment = async () => {
-    try{
-      // Optional: show a loader
-      const res = await fetch("http://localhost:5000/payhere-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: user?.email,
-          fullName: user?.fullName,
-          amount: "500.00",
-          return_url: "http://localhost:3000/dashboard?status=success",
-          cancel_url: "http://localhost:3000/dashboard?status=cancel",
-        }),
-      });
-    
-      const data = await res.json();
-      
-      // Dynamically insert PayHere button
-      const payDiv = document.createElement("div");
-      payDiv.id = "payhere-form";
-      payDiv.setAttribute("data-pay-id", data.pay_id);  // Use the pay_id returned from backend
-      payDiv.setAttribute("data-type", "SANDBOX"); // or "LIVE" in production
-      document.body.appendChild(payDiv);
-    
-      // Load PayHere script dynamically
-      const script = document.createElement("script");
-      script.src = "https://sandbox.payhere.lk/payhere.pay.button.js";
-      script.id = "payhere-button";
-      document.body.appendChild(script);
-    }catch (error) {
-      console.error("Payment initiation failed", error);
-    } finally {
-      setIsPaying(false);
-    }
+    if (!user) return;
+
+    setIsPaying(true);
+
+    try {
+
+    // Build and submit PayHere form
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://sandbox.payhere.lk/pay/obdfa4691'; // Use live URL in production
+
+    document.body.appendChild(form);
+    form.submit();
+  } catch (err) {
+    console.error('Error:', err);
+    alert('Something went wrong. Please check the console or try again.');
+  }
   };
+
 
   if (!user) {
     return (
