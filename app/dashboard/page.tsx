@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation"; // To access query params
+// import { useSearchParams } from "next/navigation"; // To access query params
 
 interface User {
   fullName: string;
@@ -12,10 +12,10 @@ interface User {
 
 export default function Dashboard() {
   const router = useRouter();
-  const searchParams = useSearchParams();  // Get query params
+  // const searchParams = useSearchParams();  // Get query params
   const [user, setUser] = useState<User | null>(null);
-  const [paymentStatusMessage, setPaymentStatusMessage] = useState<string | null>(null);
-  const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
+  // const [paymentStatusMessage, setPaymentStatusMessage] = useState<string | null>(null);
+  // const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
   
 
   useEffect(() => {
@@ -24,60 +24,60 @@ export default function Dashboard() {
       const parsedUser = JSON.parse(storedUser);
       setUser(parsedUser);
 
-      const status = searchParams.get("status");
+      // const status = searchParams.get("status");
 
-      if (status === "success") {
-        // Only check server if PayHere redirected back with ?status=success
-        checkPaymentStatus(parsedUser.email);
-      } else if (status === "cancel") {
-        setPaymentStatus("cancel");
-        setPaymentStatusMessage("❌ Payment was canceled.");
-      }
+      // if (status === "success") {
+      //   // Only check server if PayHere redirected back with ?status=success
+      //   checkPaymentStatus(parsedUser.email);
+      // } else if (status === "cancel") {
+      //   setPaymentStatus("cancel");
+      //   setPaymentStatusMessage("❌ Payment was canceled.");
+      // }
     } else {
       // If no user found, redirect to login
       router.push("/login");
     }
-  }, [router,searchParams]);
+  }, [router]);
 
-  const checkPaymentStatus = async (email: string) => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/status?email=${email}`);
-      const data = await res.json();
+  // const checkPaymentStatus = async (email: string) => {
+  //   try {
+  //     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/status?email=${email}`);
+  //     const data = await res.json();
 
-      if (res.ok && data.paid) {
-        setPaymentStatus("success");
-        setPaymentStatusMessage("✅ Payment confirmed via server.");
-      } else {
-        setPaymentStatus("pending");
-        setPaymentStatusMessage("⏳ Payment not confirmed yet. Please wait a few minutes.");
-      }
-    } catch (error) {
-      console.error("Error checking payment status:", error);
-      setPaymentStatusMessage("⚠️ Failed to check payment status. Please try again.");
-    }
-  };
+  //     if (res.ok && data.paid) {
+  //       setPaymentStatus("success");
+  //       setPaymentStatusMessage("✅ Payment confirmed via server.");
+  //     } else {
+  //       setPaymentStatus("pending");
+  //       setPaymentStatusMessage("⏳ Payment not confirmed yet. Please wait a few minutes.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error checking payment status:", error);
+  //     setPaymentStatusMessage("⚠️ Failed to check payment status. Please try again.");
+  //   }
+  // };
   
-  const [isPaying, setIsPaying] = useState(false);
+  // const [isPaying, setIsPaying] = useState(false);
 
-  const handlePayment = async () => {
-    if (!user) return;
+  // const handlePayment = async () => {
+  //   if (!user) return;
 
-    setIsPaying(true);
+  //   setIsPaying(true);
 
-    try {
+  //   try {
 
-    // Build and submit PayHere form
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://sandbox.payhere.lk/pay/obdfa4691'; // Use live URL in production
+  //   // Build and submit PayHere form
+  //   const form = document.createElement('form');
+  //   form.method = 'POST';
+  //   form.action = 'https://sandbox.payhere.lk/pay/obdfa4691'; // Use live URL in production
 
-    document.body.appendChild(form);
-    form.submit();
-  } catch (err) {
-    console.error('Error:', err);
-    alert('Something went wrong. Please check the console or try again.');
-  }
-  };
+  //   document.body.appendChild(form);
+  //   form.submit();
+  // } catch (err) {
+  //   console.error('Error:', err);
+  //   alert('Something went wrong. Please check the console or try again.');
+  // }
+  // };
 
 
   if (!user) {
@@ -95,14 +95,14 @@ export default function Dashboard() {
       <p className="text-lg mb-4">Student No: {user.studentID}</p>
 
       {/* Display payment status message */}
-      {paymentStatusMessage && (
+      {/* {paymentStatusMessage && (
         <div className="text-xl text-center mb-4">
           <p>{paymentStatusMessage}</p>
         </div>
-      )}
+      )} */}
 
       {/* Conditionally render Pay Now button based on payment status */}
-      {paymentStatus !== "success" && (
+      {/* {paymentStatus !== "success" && (
         <button
           onClick={handlePayment}
           disabled={isPaying}
@@ -110,7 +110,7 @@ export default function Dashboard() {
         >
           {isPaying? "Processing..." : "Pay Now"}
         </button>
-      )}
+      )} */}
     </div>
   );
 }
