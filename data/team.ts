@@ -1,8 +1,8 @@
 export const teamMembers = [
     { name: 'Binath Perera', position: 'President', image: '/binath.jpg' },
-    { name: 'Ishini Kaushalya', position: 'Secretory', image: '/ishini.jpg' },
+    { name: 'Ishini Kaushalya', position: 'Secretary', image: '/ishini.jpg' },
     { name: 'Yuneth Withanachchi', position: 'Vice President', image: '/yuneth.jpg' },
-    { name: 'Amasha Fernando ', position: 'Vice Secretory', image: '/amasha.jpg' },
+    { name: 'Amasha Fernando ', position: 'Vice Secretary', image: '/amasha.jpg' },
     { name: 'Janith Thejaka', position: 'Editor', image: '/janith.jpg' },
     { name: 'Haritha Thanthilage', position: 'Editor', image: '/haritha.jpg' },
     { name: 'Maneesha Gunarathne', position: 'Junior Treasurer', image: '/maneesha.jpg' },
