@@ -89,7 +89,7 @@ export default function JoinUsForm() {
     setIsSubmitting(true);
     try {
       const check = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/check-if-exists`,
+        `${process.env.NEXT_PUBLIC_API_URL}/applications/check-if-exists`,
         {
           method: "POST",
           headers: {
