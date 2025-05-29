@@ -153,7 +153,7 @@ export default function JoinUsForm() {
             <FormItem>
               <FormLabel>Full Name</FormLabel>
               <FormControl>
-                <Input placeholder="John doily" {...field} />
+                <Input placeholder="John Doily" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -256,7 +256,7 @@ export default function JoinUsForm() {
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select your faculty" />
+                      <SelectValue  />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -266,6 +266,9 @@ export default function JoinUsForm() {
                     </SelectItem>
                     <SelectItem value="business">
                       Faculty of Business
+                    </SelectItem>
+                    <SelectItem value="humanities">
+                      Faculty of Humanities and Social Sciences
                     </SelectItem>
                   </SelectContent>
                 </Select>
@@ -286,7 +289,7 @@ export default function JoinUsForm() {
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select your year" />
+                      <SelectValue/>
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -328,7 +331,7 @@ export default function JoinUsForm() {
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Emergency Contact Person" />
+                      <SelectValue/>
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
