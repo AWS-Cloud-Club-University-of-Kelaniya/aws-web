@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-// import JoinUsForm from "@/components/join-us-form";
+import JoinUsForm from "@/components/join-us-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, GraduationCap, Users, Award } from "lucide-react";
 
@@ -86,12 +86,11 @@ export default function JoinUs() {
                 <CardTitle>Membership Application 2025</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>
-                  You can submit your membership application through this page.
-                  Next intake opens from 15 May 2025 - 31 May 2025.
-                </p>
+                { <p>
+                  Applications close on 20th June 2025.
+                </p> }
 
-                {/* <JoinUsForm /> */}
+                <JoinUsForm />
               </CardContent>
             </Card>
           </motion.div>

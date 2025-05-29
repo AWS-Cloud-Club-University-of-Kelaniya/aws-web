@@ -7,7 +7,10 @@ const faqs = [
     question: "What are AWS Cloud Clubs?",
     answer:
       "AWS Cloud Clubs are student-led user groups for post-secondary level students and independent learners. Led by Cloud Club Captains, Cloud Clubs are open to any learner aged 18+.",
-  },
+    links: [
+      { text: "Learn more about AWS Cloud Clubs", url: "https://aws.amazon.com/developer/community/students/cloudclubs" },
+    ],
+    },
   {
     question: "How do I become a member?",
     answer:
@@ -46,6 +49,26 @@ export default function FAQPage() {
             </button>
             {openIndex === index && (
               <p className="mt-2 text-gray-700">{faq.answer}</p>
+              // Display links if available
+              
+            )}
+            {openIndex === index && faq.links && faq.links.length > 0 && (
+              <div className="mt-2 space-y-1">
+                <ul>
+                  {faq.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline"
+                      >
+                        {link.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
         ))}

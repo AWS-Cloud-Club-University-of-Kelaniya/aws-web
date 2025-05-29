@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cloud, Users, Zap, Award } from "lucide-react";
 import { teamMembers } from "@/data/team";
+import Link from "next/link";
 
 export default function AboutUs() {
   const containerVariants = {
@@ -94,7 +95,7 @@ export default function AboutUs() {
               <p className="text-lg text-gray-600">
                 Through this we aim to bridge the gap between academic learning
                 and practical skills in cloud computing. To learn more about AWS Cloud
-                Clubs visit <u><a href="https://aws.amazon.com/developer/community/students/cloudclubs">aws.amazon.com/cloudclubs</a></u>
+                Clubs visit <Link href="https://aws.amazon.com/developer/community/students/cloudclubs" className="text-[#FF9900] hover:underline">aws.amazon.com</Link>
               </p>
             </motion.div>
             <motion.div

@@ -26,7 +26,7 @@ export default function Events() {
         >
           <h1 className="text-4xl font-bold mb-4">Upcoming Events</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join us for exciting workshops, seminars, and networking events. Join our <u><a href="https://www.meetup.com/aws-cloud-club-at-university-of-kelaniya/" target="_blank">meetup community</a></u> to easily stay updated.
+            Join us for exciting workshops, seminars, and networking events. Join our <Link  href="https://www.meetup.com/aws-cloud-club-at-university-of-kelaniya/" className="text-[#FF9900] hover:underline" target="_blank">meetup community</Link> to easily stay updated.
           </p>
         </motion.div>
 
