@@ -91,7 +91,7 @@ export default function JoinUsForm() {
       const check = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/check-if-exists`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
