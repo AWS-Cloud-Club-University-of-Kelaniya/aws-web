@@ -84,11 +84,12 @@ export default function JoinUs() {
             <Card>
               <CardHeader>
                 <CardTitle>Membership Application 2025</CardTitle>
+                <h5>
+                  Apply before 20th June 2025.
+                </h5>
               </CardHeader>
               <CardContent>
-                { <p>
-                  Applications close on 20th June 2025.
-                </p> }
+                
 
                 <JoinUsForm />
               </CardContent>
