@@ -88,6 +88,26 @@ export default function JoinUsForm() {
     console.log(values);
     setIsSubmitting(true);
     try {
+      const check = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/check-if-exists`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
+      if (!check.ok) throw new Error("Failed to submit application");
+      //Access body of the response
+      const checkData = await check.json();
+      if(checkData.exists) {
+        toast.error(checkData.message, {
+        duration: 2000,
+        position: "top-center",
+      });
+      return;
+      }
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/applications`,
         {
