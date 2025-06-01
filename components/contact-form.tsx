@@ -73,7 +73,7 @@ export default function ContactForm() {
       // });
       form.reset();
       setResponseMessage(
-        "Message sent successfully! We will get back to you as soon as possible."
+        "You're message has reached us. We will get back to you as soon as possible."
       );
     } catch (error) {
       toast({

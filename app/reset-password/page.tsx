@@ -2,6 +2,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Card,
   CardHeader,
@@ -10,11 +12,19 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 import { Loader2 } from "lucide-react";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const ResetPasswordPage: React.FC = () => {
   const router = useRouter();
@@ -61,7 +71,15 @@ const ResetPasswordPage: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-
+  const formSchema = z.object({
+    password: z.string().min(8, { message: "8 characters password" }),
+  });
+  const form = useForm<z.infer<typeof formSchema>>({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+        password: "",
+      },
+    });
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-background p-4">
@@ -71,25 +89,36 @@ const ResetPasswordPage: React.FC = () => {
             <CardDescription>Enter your new password below.</CardDescription>
           </CardHeader>
           <CardContent>
+            <Form {...form}>  
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col space-y-1">
-                <Label htmlFor="password">New Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>New Password</FormLabel>
+                                <FormControl>
+                                  <Input {...field} onChange={(e) => setPassword(e.target.value)}/>
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
               </div>
               <div className="flex flex-col space-y-1">
-                <Label htmlFor="confirm">Confirm Password</Label>
-                <Input
-                  id="confirm"
-                  type="password"
-                  required
-                  value={confirm}
-                  onChange={(e) => setConfirm(e.target.value)}
+                <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>New Password</FormLabel>
+                                <FormControl>
+                                  <Input {...field} onChange={(e) => setConfirm(e.target.value)}/>
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
                 />
               </div>
               <CardFooter className="p-0">
@@ -109,6 +138,7 @@ const ResetPasswordPage: React.FC = () => {
                 </Button>
               </CardFooter>
             </form>
+            </Form>
           </CardContent>
         </Card>
       </div>

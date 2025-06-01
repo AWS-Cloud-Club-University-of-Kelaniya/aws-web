@@ -64,6 +64,8 @@ const formSchema = z.object({
 export default function JoinUsForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -125,8 +127,10 @@ export default function JoinUsForm() {
         duration: 2000,
         position: "top-center",
       });
-
-
+      setSubmitted(true);
+      setResponseMessage(
+        "Your application has been submitted successfully. You will recieve an email shortly."
+      );
       form.reset();
     } catch (error) {
       toast.error(
@@ -144,7 +148,12 @@ export default function JoinUsForm() {
   }
 
   return (
+    
     <Form {...form}>
+      {responseMessage && (
+          <div className="text-green-600 text-sm">{responseMessage}</div>
+        )}
+      {!submitted && (
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
@@ -421,6 +430,7 @@ export default function JoinUsForm() {
           )}
         </Button>
       </form>
+    )}
     </Form>
   );
 }

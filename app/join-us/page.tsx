@@ -23,6 +23,25 @@ export default function JoinUs() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-2">
           <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle>Membership Registration 2025</CardTitle>
+                <h5>
+                  Apply before 15-Jun-2025.
+                </h5>
+              </CardHeader>
+              <CardContent>
+                
+
+                <JoinUsForm />
+              </CardContent>
+            </Card>
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -76,25 +95,7 @@ export default function JoinUs() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Card>
-              <CardHeader>
-                <CardTitle>Membership Application 2025</CardTitle>
-                <h5>
-                  Apply before 20th June 2025.
-                </h5>
-              </CardHeader>
-              <CardContent>
-                
-
-                <JoinUsForm />
-              </CardContent>
-            </Card>
-          </motion.div>
+          
         </div>
       </div>
     </div>
