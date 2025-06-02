@@ -14,6 +14,6 @@ export const contacts = [
     {
         icon: Mail,
         title: "Email Us",
-        content: "aws.uok@gmail.com",
+        content: "info@aws-uok.com",
     },
 ]
