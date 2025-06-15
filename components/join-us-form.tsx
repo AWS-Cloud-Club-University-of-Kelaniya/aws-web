@@ -276,6 +276,7 @@ export default function JoinUsForm() {
                     <SelectItem value="business">
                       Faculty of Business
                     </SelectItem>
+                    <SelectItem value="medicine">Faculty of Medicine</SelectItem>
                     <SelectItem value="humanities">
                       Faculty of Humanities and Social Sciences
                     </SelectItem>
