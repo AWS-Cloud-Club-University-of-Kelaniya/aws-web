@@ -23,16 +23,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <ToastProvider>
         <body
-          className={`${inter.className} flex flex-col min-h-screen bg-gray-50`}
-        >
+        suppressHydrationWarning
+        className={`${inter.className} flex flex-col min-h-screen bg-gray-50`}>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster />
         </body>
-      </ToastProvider>
     </html>
   );
 }

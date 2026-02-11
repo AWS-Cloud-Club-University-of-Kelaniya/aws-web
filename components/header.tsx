@@ -58,6 +58,7 @@ export default function Header() {
               { href: "/about-us", label: "About Us" },
               { href: "/events", label: "Events" },
               { href: "/resources", label: "Resources" },
+              { href: "/newsletter", label: "Newsletters" },
               { href: "/contact-us", label: "Contact" },
             ].map((item) => (
               <NavLink key={item.href} href={item.href}>
@@ -119,6 +120,7 @@ export default function Header() {
                 { href: "/about-us", label: "About Us" },
                 { href: "/events", label: "Events" },
                 { href: "/resources", label: "Resources" },
+                { href: "/newsletter", label: "Newsletters" },
                 { href: "/contact-us", label: "Contact" },
               ].map((item) => (
                 <NavLink
