@@ -8,18 +8,20 @@ const faqs = [
     answer:
       "AWS Cloud Clubs are student-led user groups for post-secondary level students and independent learners. Led by Cloud Club Captains, Cloud Clubs are open to any learner aged 18+.",
     links: [
-      { text: "Learn more about AWS Cloud Clubs", url: "https://aws.amazon.com/developer/community/students/cloudclubs" },
+      {
+        text: "Learn more about AWS Cloud Clubs",
+        url: "https://aws.amazon.com/developer/community/students/cloudclubs",
+      },
     ],
-    },
+  },
   {
     question: "How do I become a member?",
     answer:
-      "You can submit your application through the website when the new membership window opens.",
+      "You can submit your application through the website and join our WhatsApp group when the new membership window opens.",
   },
   {
     question: "When is the next membership intake?",
-    answer:
-      "The next submission window will be open from 15-May-2025 to 31-May-2025.",
+    answer: "The submission window opens in March every year.",
   },
 ];
 
@@ -50,7 +52,6 @@ export default function FAQPage() {
             {openIndex === index && (
               <p className="mt-2 text-gray-700">{faq.answer}</p>
               // Display links if available
-              
             )}
             {openIndex === index && faq.links && faq.links.length > 0 && (
               <div className="mt-2 space-y-1">

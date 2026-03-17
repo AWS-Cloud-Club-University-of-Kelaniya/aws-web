@@ -51,7 +51,8 @@ export default function Home() {
             className="max-w-4xl mx-auto text-center text-white"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Welcome to <span className="gradient-text">AWS Cloud Club</span>
+              Welcome to{" "}
+              <span className="gradient-text">AWS Cloud Club UOK</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90">
               Empowering students with cloud computing skills at the University
@@ -109,7 +110,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">
-              Why Choose AWS Cloud Club?
+              Why Join AWS Cloud Club UOK?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Join a community of cloud enthusiasts and future tech leaders

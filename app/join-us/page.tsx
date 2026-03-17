@@ -29,14 +29,44 @@ export default function JoinUs() {
           >
             <Card>
               <CardHeader>
-                <CardTitle>Membership Registration 2025</CardTitle>
-                <h5>
-                  Apply before 15-Jun-2025.
-                </h5>
+                <CardTitle>Membership Registration 2026</CardTitle>
+                <h5 className="font-semibold text-green-600 my-2">Open Now.</h5>
+                <div className="space-y-4 text-sm mt-4">
+                  <div>
+                    <span className="font-semibold">STEP 1:</span> Join our
+                    members only whatsapp group.
+                    <div className="mt-1">
+                      <a
+                        href="https://chat.whatsapp.com/LwH3BiTgyxQCcqQXYPvMhj"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline font-medium"
+                      >
+                        Click here to join WhatsApp Group
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="font-semibold">STEP 2:</span> Join the
+                    official meetup page for AWS Cloud Club UOK.
+                    <div className="mt-1">
+                      <a
+                        href="https://www.meetup.com/aws-cloud-club-at-university-of-kelaniya/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline font-medium"
+                      >
+                        Click here to join Meetup Group
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="font-semibold">STEP 3:</span> Fill the
+                    membership form shown below and submit.
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
-                
-
                 <JoinUsForm />
               </CardContent>
             </Card>
@@ -94,8 +124,6 @@ export default function JoinUs() {
               </div>
             </div>
           </motion.div>
-
-          
         </div>
       </div>
     </div>

@@ -47,7 +47,7 @@ export default function Header() {
               className="w-10 h-10"
             />
             <span className="text-xl font-bold text-[#232F3E] hidden md:inline-block">
-              AWS Cloud Club
+              AWS Cloud Club UOK
             </span>
           </Link>
 

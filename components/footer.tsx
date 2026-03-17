@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">AWS Cloud Club</h3>
+            <h3 className="text-xl font-bold mb-4">AWS Cloud Club UOK</h3>
             <p className="text-sm">University of Kelaniya</p>
           </div>
           <div>
@@ -86,7 +86,7 @@ export default function Footer() {
                 <Linkedin size={24} />
               </a>
               <a
-                href="https://youtube.com/@awscloudclubkelaniya?si=iIQeppQfq_Hd2fNM"
+                href="https://www.youtube.com/@AWSCloudClubUOK"
                 target="_blank"
                 className="hover:text-[#FF9900]"
               >
@@ -96,10 +96,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-sm">
-          <p>
-            &copy; 2025 AWS Cloud Club - University of Kelaniya. All rights
-            reserved.
-          </p>
+          <p>&copy; 2025 AWS Cloud Club UOK. All rights reserved.</p>
         </div>
       </div>
     </footer>
