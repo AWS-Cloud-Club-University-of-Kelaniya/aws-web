@@ -129,9 +129,7 @@ export default function JoinUsForm() {
         position: "top-center",
       });
       setSubmitted(true);
-      setResponseMessage(
-        "Your application has been submitted successfully. You will recieve an email shortly.",
-      );
+      setResponseMessage("Your registration has been completed successfully.");
       form.reset();
     } catch (error) {
       toast.error(
