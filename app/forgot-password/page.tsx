@@ -43,16 +43,16 @@ export default function ForgotPassword() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ email: values.email }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => null);
       if (!response.ok) {
-        toast.error(data.message)
+        toast.error(data?.message || "Failed to send reset link")
         setIsSubmitting(false)
         return
       }
-      toast.success(data.message)
+      toast.success(data?.message || "Reset link sent")
       handleButtonClick()
 
     } catch (error) {
@@ -79,7 +79,7 @@ export default function ForgotPassword() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="you@example.com" {...field} />
+                      <Input type="email" placeholder="you@example.com" autoComplete="email" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
