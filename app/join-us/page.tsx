@@ -61,8 +61,16 @@ export default function JoinUs() {
                     </div>
                   </div>
                   <div>
-                    <span className="font-semibold">STEP 3:</span> Fill the
-                    membership form shown below and submit.
+                    <span className="font-semibold">
+                      STEP 3 (FOR NEW MEMBERS):
+                    </span>
+                    Submit the registration form shown below.
+                  </div>
+                  <div>
+                    <span className="font-semibold">
+                      STEP 3 (FOR EXISTING MEMBERS):
+                    </span>
+                    Login to renew your membership for the year 2026.
                   </div>
                 </div>
               </CardHeader>
