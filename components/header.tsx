@@ -65,7 +65,7 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            {userLoggedIn && <NavLink href="/dashboard">Dashboard</NavLink>}
+            {userLoggedIn && <NavLink href="/dashboard">My Dashboard</NavLink>}
 
             {userLoggedIn ? (
               <Button onClick={handleLogout}>Logout</Button>

@@ -8,6 +8,8 @@ interface User {
   fullName: string;
   email: string;
   studentID: string;
+  membershipStatus: string;
+  memberSince: string;
 }
 
 export default function Dashboard() {
@@ -93,6 +95,8 @@ export default function Dashboard() {
       <h1 className="text-3xl font-bold mb-4">Welcome, {user.fullName}!</h1>
       <p className="text-lg mb-2">Email: {user.email}</p>
       <p className="text-lg mb-4">Student No: {user.studentID}</p>
+      <p className="text-lg mb-2">Membership Status: <span className="font-semibold capitalize">{user.membershipStatus}</span></p>
+      <p className="text-lg mb-4">Member Since: {new Date(user.memberSince).toLocaleDateString()}</p>
 
       {/* Display payment status message */}
       {/* {paymentStatusMessage && (
