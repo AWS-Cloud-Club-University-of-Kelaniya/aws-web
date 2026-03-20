@@ -101,7 +101,7 @@ const HeroSection = () => {
         <div className="text-lg sm:text-xl text-foreground/90 font-medium">
           <p>April 25, 2026</p>
           <p className="text-muted-foreground">
-            A8 Auditorium, University of Kelaniya
+            Faculty of Science, University of Kelaniya
           </p>
         </div>
 
