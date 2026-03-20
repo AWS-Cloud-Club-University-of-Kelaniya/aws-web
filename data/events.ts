@@ -11,15 +11,16 @@ export const events = [
     category: "Conference",
     registrationLink: "#",
   },
-  // {
-  //   id: 2,
-  //   title: "Web Hosting on Virtual Machines",
-  //   date: "Coming Soon",
-  //   time: "-",
-  //   location: "-",
-  //   description: "Learn the basics of web hosting and how to set up a virtual machine.",
-  //   image: "/event-2.png",
-  //   category: "Workshop",
-  //   registrationLink: "#"
-  // },
+  {
+    id: 2,
+    title: "Annual General Meeting 2026",
+    date: "Coming Soon",
+    time: "-",
+    location: "-",
+    description:
+      "Join us for our annual general meeting where we'll discuss the year's achievements and elect the new board members.",
+    image: "/event-2.png",
+    category: "Meeting",
+    registrationLink: "#",
+  },
 ];

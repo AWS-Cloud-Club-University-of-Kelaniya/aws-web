@@ -1,29 +1,32 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cloud, Users, Zap, Award, ArrowRight } from "lucide-react";
+import HeroSection from "@/components/hero-section";
 
 export default function Home() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  // const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
-  const position = useTransform(scrollYProgress, (pos) => {
-    return `${pos * 50}% 50%`;
-  });
+  // OLD Hero Section variables - COMMENTED OUT
+  // const targetRef = useRef<HTMLDivElement>(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: targetRef,
+  //   offset: ["start start", "end start"],
+  // });
+  // const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // const position = useTransform(scrollYProgress, (pos) => {
+  //   return `${pos * 50}% 50%`;
+  // });
 
   return (
     <div className="bg-gray-50">
-      {/* Hero Section */}
+      {/* NEW Hero Section from aws-clone-project */}
+      <HeroSection />
+
+      {/* OLD Hero Section - COMMENTED OUT */}
+      {/* 
       <motion.section
         ref={targetRef}
         style={{ opacity }}
@@ -98,6 +101,7 @@ export default function Home() {
           </Link>
         </div>
       </motion.section>
+      */}
 
       {/* Features Section */}
       <section className="py-20 bg-white">
