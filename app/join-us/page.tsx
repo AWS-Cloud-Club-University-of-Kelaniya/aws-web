@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import JoinUsForm from "@/components/join-us-form";
+// import JoinUsForm from "@/components/join-us-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, GraduationCap, Users, Award } from "lucide-react";
 
@@ -29,9 +29,11 @@ export default function JoinUs() {
           >
             <Card>
               <CardHeader>
-                <CardTitle>Membership Registration 2026</CardTitle>
-                <h5 className="font-semibold text-green-600 my-2">Open Now.</h5>
-                <div className="space-y-4 text-sm mt-4">
+                <CardTitle>Membership Registration Closed</CardTitle>
+                <h5 className="font-semibold text-blue-600 my-2">
+                  Opens again on March 2027.
+                </h5>
+                {/* <div className="space-y-4 text-sm mt-4">
                   <div>
                     <span className="font-semibold">STEP 1:</span> Join our
                     members only whatsapp group.
@@ -72,10 +74,20 @@ export default function JoinUs() {
                     </span>
                     Login to renew your membership for the year 2026.
                   </div>
-                </div>
+                </div> */}
               </CardHeader>
               <CardContent>
-                <JoinUsForm />
+                {/* Empty blur box */}
+                <div className="bg-gray-200 border-2 border-dashed rounded-xl p-4 mb-4">
+                  Past members can{" "}
+                  <a href="/login" className="text-blue-600 hover:underline">
+                    log in
+                  </a>{" "}
+                  to renew their membership for 2026, while new members can
+                  submit the registration form when it opens again in March
+                  2027.
+                </div>
+                {/* <JoinUsForm /> */}
               </CardContent>
             </Card>
           </motion.div>
