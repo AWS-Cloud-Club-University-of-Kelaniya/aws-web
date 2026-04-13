@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
-const TARGET_DATE = new Date("2026-04-25T09:00:00-05:30");
+const TARGET_DATE = new Date("2026-04-25T09:00:00+05:30");
 
 function getTimeLeft() {
   const diff = Math.max(0, TARGET_DATE.getTime() - Date.now());
