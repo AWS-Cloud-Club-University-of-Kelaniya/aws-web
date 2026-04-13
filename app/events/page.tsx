@@ -26,7 +26,16 @@ export default function Events() {
         >
           <h1 className="text-4xl font-bold mb-4">Upcoming Events</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join us for exciting workshops, seminars, and networking events. Join our <Link  href="https://www.meetup.com/aws-cloud-club-at-university-of-kelaniya/" className="text-[#FF9900] hover:underline" target="_blank">meetup community</Link> to easily stay updated.
+            Join us for exciting workshops, seminars, and networking events.
+            Join our{" "}
+            <Link
+              href="https://www.meetup.com/aws-cloud-club-at-university-of-kelaniya/"
+              className="text-[#FF9900] hover:underline"
+              target="_blank"
+            >
+              meetup community
+            </Link>{" "}
+            to easily stay updated.
           </p>
         </motion.div>
 
@@ -76,7 +85,7 @@ export default function Events() {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link> */}
                     <Link href={event.registrationLink}>
-                      Registrations Open Soon
+                      {event.registrationLinkText}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
